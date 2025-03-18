@@ -1,0 +1,22 @@
+{
+    "appTitle": "تطبيق الاستثمار",
+    "welcome": "مرحباً",
+    "login": "تسجيل الدخول",
+    "dashboard": "لوحة التحكم",
+    "features": "الميزات",
+    "investmentOpportunities": "فرص الاستثمار",
+    "settings": "الإعدادات",
+    "language": "اللغة",
+    "authentication": "المصادقة",
+    "enterPin": "أدخل رقم التعريف الشخصي",
+    "biometricAuth": "المصادقة البيومترية",
+    "error": "خطأ",
+    "success": "نجاح",
+    "loading": "جاري التحميل...",
+    "logout": "تسجيل الخروج",
+    "changeLanguage": "تغيير اللغة",
+    "biofail": "فشل التحقق البيومتري",
+    "loginPin": "تسجيل الدخول باستخدام الرقم السري",
+    "loginWithBio": "تسجيل الدخول باستخدام البيانات البيومترية",
+    "investment": "الاستثمارات"
+} 
