@@ -1,56 +1,84 @@
-# Flutter Multilingual App
+# Investment Management App
 
-A Flutter application with multilingual support (English and Arabic) featuring RTL layout for Arabic language.
+## Overview
+
+The **Investment Management App** is a Flutter application designed with a clean architecture approach, incorporating state management, secure authentication, and API integration. The app supports multilingual functionality (English & Arabic) with RTL layout support for Arabic.
 
 ## Features
 
-- Language switching between English and Arabic
-- Persistent language selection storage
-- RTL layout support for Arabic
-- Localized screens:
-    - Login screen
-    - Dashboard
-    - PDF viewer
-    - PIN setup and entry screens
+- **Secure Authentication** (Biometric & PIN-based authentication with secure storage)
+- **Investment Dashboard** (Displays welcome message & investment summary)
+- **Feature Screen** (Fetches investment opportunities from a simulated API)
+- **Localization Support** (English & Arabic with RTL layout and persistent language selection)
+- **State Management** (Uses Riverpod for efficient state management)
 
-## Development Process
+## Tech Stack & Dependencies
 
-### Architecture
-This project follows [describe your architecture, e.g., Clean Architecture, BLoC pattern, etc.]
+### Core Dependencies
 
-### Localization Strategy
-The app uses a custom translation service to handle language switching between English and Arabic. The selected language is stored in [localStorage/SharedPreferences] and applied throughout the app.
+- `flutter_riverpod`: State management
+- `flutter_secure_storage`: Secure authentication storage
+- `local_auth`: Biometric authentication
+- `dio`: API integration
+- `go_router`: Navigation
+- `intl`: Localization support
+- `syncfusion_flutter_pdfviewer`: PDF viewing
+- `flutter_screenutil`: Responsive UI
+- `pin_code_fields`: PIN authentication UI
+- `freezed_annotation` & `json_annotation`: Code generation & serialization
 
-### External Tools and Libraries
-- `flutter_localizations` - For base localization support
-- [List any other libraries you're using like `shared_preferences`, `get_it`, etc.]
+### Dev Dependencies
 
-## Getting Started
+- `build_runner`: Code generation
+- `freezed`: Immutable state handling
+- `json_serializable`: JSON serialization
+- `flutter_lints`: Code linting
+- `flutter_test`: Unit testing
+
+## Project Structure
+
+The project follows a clean architecture approach:
+
+```
+lib/
+├── core/            # Common utilities, theme, and configurations
+├── data/            # API services, repositories, and data models
+├── domain/          # Business logic, use cases, and entities
+├── presentation/    # UI components, screens, and providers
+│   ├── screens/     # Individual screens (Login, Dashboard, Feature)
+│   ├── widgets/     # Reusable UI components
+│   ├── providers/   # Riverpod providers for state management
+│
+├── main.dart        # App entry point
+```
+
+## Installation & Setup
 
 ### Prerequisites
-- Flutter SDK version X.X.X or higher
-- Dart SDK version X.X.X or higher
-- [Any other dependencies]
 
-### Installation
+- Flutter SDK 3.6.1+
+- Dart SDK 3.6.1+
+
+### Steps
+
 1. Clone the repository:
-   ```
+   ```bash
    git clone [your-repository-url]
    ```
-
 2. Navigate to the project directory:
+   ```bash
+   cd investment_app
    ```
-   cd [project-directory]
-   ```
-
 3. Install dependencies:
-   ```
+   ```bash
    flutter pub get
    ```
-
 4. Run the app:
-   ```
+   ```bash
    flutter run
    ```
 
-## Project Structure
+## License
+
+This project is no any License.
+
