@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-class PDFViewerScreen extends StatefulWidget {
+import '../../core/localization/translation_service.dart';
+
+class PDFViewerScreen extends ConsumerStatefulWidget {
   final String pdfUrl;
 
   const PDFViewerScreen({super.key, required this.pdfUrl});
@@ -10,14 +13,15 @@ class PDFViewerScreen extends StatefulWidget {
   _PDFViewerScreenState createState() => _PDFViewerScreenState();
 }
 
-class _PDFViewerScreenState extends State<PDFViewerScreen> {
-  bool _isLoading = true;
+class _PDFViewerScreenState extends ConsumerState<PDFViewerScreen> {
+  final ValueNotifier<bool> _isLoading = ValueNotifier(true);
 
   @override
   Widget build(BuildContext context) {
+    final translationService = ref.watch(translationServiceProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("PDF Viewer")),
+      appBar: AppBar(title: Text(translationService.translate('pdfViewer'))),
       body: Stack(
         children: [
           SfPdfViewer.network(
@@ -26,15 +30,25 @@ class _PDFViewerScreenState extends State<PDFViewerScreen> {
               print("Error: ${details.description}");
             },
             onDocumentLoaded: (details) {
-              setState(() {
-                _isLoading = false;
-              });
+              _isLoading.value = false; // Use ValueNotifier instead of setState
             },
           ),
-          if (_isLoading)
-            const Center(child: CircularProgressIndicator()), // Show loader while fetching PDF
+          ValueListenableBuilder<bool>(
+            valueListenable: _isLoading,
+            builder: (context, isLoading, child) {
+              return isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : const SizedBox.shrink();
+            },
+          ),
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _isLoading.dispose();
+    super.dispose();
   }
 }
