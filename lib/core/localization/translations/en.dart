@@ -32,5 +32,13 @@ class EnTranslations {
     'forgot_password': 'Forgot Password?',
     'dont_have_account': "Don't have an account?",
     'already_have_account': 'Already have an account?',
+    "bioFail": "Biometric Authentication Failed",
+    "loginPin": "Login with PIN",
+    "loginWithBio": "Login with Biometrics",
+    "investment": "Investments",
+    "pdfViewer":"PDF Viewer",
+    "enterPin":"Enter PIN",
+    "enter4Pin":"Enter your 4-digit PIN",
+    "or":"OR"
   };
 } 

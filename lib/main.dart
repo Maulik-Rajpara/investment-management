@@ -21,7 +21,7 @@ class InvestmentApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: AppLocalizations.withLocalizations(
+      child: AppLocalizationWrapper.withLocalizations(
         child: MaterialApp.router(
           routerConfig: router, // ✅ This already handles navigation
           title: 'Investment App',

@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../providers/language_provider.dart';
 
-class AppLocalizations {
+class AppLocalizationWrapper {
   static const supportedLocales = [
     Locale('en'),
     Locale('ar'),
-  ];
-
-  static const localizationsDelegates = [
-    GlobalMaterialLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
   ];
 
   static Widget withLocalizations({
@@ -21,9 +16,15 @@ class AppLocalizations {
     return Consumer(
       builder: (context, ref, _) {
         final locale = ref.watch(languageProvider);
+
         return MaterialApp(
           locale: locale,
-          localizationsDelegates: localizationsDelegates,
+          localizationsDelegates: [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
           supportedLocales: supportedLocales,
           builder: (context, child) {
             return Directionality(
@@ -38,4 +39,4 @@ class AppLocalizations {
       },
     );
   }
-} 
+}

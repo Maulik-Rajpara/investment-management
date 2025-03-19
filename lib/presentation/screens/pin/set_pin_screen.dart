@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import '../../../core/localization/translation_service.dart';
 import '../../../providers/auth_provider.dart';
 
 class SetPinScreen extends ConsumerWidget {
@@ -11,6 +12,7 @@ class SetPinScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     TextEditingController pinController = TextEditingController();
+    final translationService = ref.watch(translationServiceProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text("Set PIN")),
@@ -19,7 +21,7 @@ class SetPinScreen extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Enter a 4-digit PIN"),
+            Text(translationService.translate('enter4Pin')),
             const SizedBox(height: 10),
             PinCodeTextField(
               length: 4,

@@ -23,14 +23,14 @@ class LoginScreen extends ConsumerWidget {
                 if (success) context.go('/dashboard');
                 else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                     SnackBar(content: Text(translationService.translate("biofail"))),
+                     SnackBar(content: Text(translationService.translate("bioFail"))),
                   );
                 }
               },
               child:  Text(translationService.translate('loginWithBio')),
             ),
             const SizedBox(height: 20),
-            Text("OR"),
+            Text(translationService.translate('or')),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
