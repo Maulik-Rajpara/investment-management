@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../providers/language_provider.dart';
 
 class AppLocalizationWrapper {
@@ -20,7 +20,7 @@ class AppLocalizationWrapper {
         return MaterialApp(
           locale: locale,
           localizationsDelegates: [
-            AppLocalizations.delegate,
+
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
